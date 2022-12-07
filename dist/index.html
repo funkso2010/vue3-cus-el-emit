@@ -11,15 +11,24 @@
 
 	<body>
 		<div id="app">
-			vite
-			<custom-button id="btn">Click me!</custom-button>
+			<p>
+				defineAsyncComponent: <custom-button id="btn">Click me!</custom-button>
+			</p>
+
+			<p>
+				import: <custom-button-import id="btn_import">Click me!</custom-button-import>
+			</p>
 		</div>
 
 		<script type="module" src="/my-lib.umd.js"></script>
 
 		<script>
 			document.querySelector('#btn').addEventListener('custom-click', () => {
-				console.log('custom click');
+				console.log('defineAsyncComponent click');
+			});
+
+			document.querySelector('#btn_import').addEventListener('custom-click', () => {
+				console.log('import click');
 			});
 		</script>
 	</body>
