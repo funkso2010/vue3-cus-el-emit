@@ -11,8 +11,8 @@ Node 14.20.0
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Run locally
 
 ```sh
-npm run dev
+npm run preview
 ```
