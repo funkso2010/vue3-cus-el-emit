@@ -7,29 +7,66 @@
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 		<title>Vite App</title>
+		<script type="module" src="/my-lib.umd.js"></script>
 	</head>
 
 	<body>
 		<div id="app">
-			<p>
+			<!-- <p>
 				defineAsyncComponent: <custom-button id="btn">Click me!</custom-button>
 			</p>
 
 			<p>
 				import: <custom-button-import id="btn_import">Click me!</custom-button-import>
+			</p> -->
+
+			<p>
+				Custom element button with prop defatuls hardcoded:
+				<custom-button id="button-with-def" text='Buttonnnn' bg-color-red></custom-button>
+				<br />
+				<button id="remove-with-def">remove text and red</button>
+				<button id="add-with-def">add text and red</button>
+			</p>
+
+			<p>
+				Custom element butoon without prop defatuls hardcoded:
+				<custom-button id="button-without-def"></custom-button>
+				<br />
+				<button id="remove-without-def">remove text and red</button>
+				<button id="add-without-def">add text back and red</button>
 			</p>
 		</div>
 
-		<script type="module" src="/my-lib.umd.js"></script>
-
 		<script>
-			document.querySelector('#btn').addEventListener('custom-click', () => {
-				console.log('defineAsyncComponent click');
+			// With hardcoded defaults
+			document.querySelector('#remove-with-def').addEventListener('click', () => {
+				document.querySelector('#button-with-def').removeAttribute('text');
+				document.querySelector('#button-with-def').removeAttribute('bg-color-red');
 			});
 
-			document.querySelector('#btn_import').addEventListener('custom-click', () => {
-				console.log('import click');
+			document.querySelector('#add-with-def').addEventListener('click', () => {
+				document.querySelector('#button-with-def').setAttribute('text', 'button text 1');
+				document.querySelector('#button-with-def').setAttribute('bg-color-red', '');
 			});
+
+			// Without hardcoded defaults
+			document.querySelector('#remove-without-def').addEventListener('click', () => {
+				document.querySelector('#button-without-def').removeAttribute('text');
+				document.querySelector('#button-without-def').removeAttribute('bg-color-red');
+			});
+
+			document.querySelector('#add-without-def').addEventListener('click', () => {
+				document.querySelector('#button-without-def').setAttribute('text', 'button text 2');
+				document.querySelector('#button-without-def').setAttribute('bg-color-red', '');
+			});
+
+			// document.querySelector('#btn').addEventListener('custom-click', () => {
+			// 	console.log('defineAsyncComponent click');
+			// });
+
+			// document.querySelector('#btn_import').addEventListener('custom-click', () => {
+			// 	console.log('import click');
+			// });
 		</script>
 	</body>
 </html>

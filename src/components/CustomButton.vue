@@ -1,8 +1,22 @@
 <template>
-	<button type="button" @click="($event) => onClick($event)">Click Me!</button>
+	<button
+		type="button"
+		:style="props.bgColorRed ? `background-color: red;` : undefined "
+		@click="($event) => onClick($event)">
+		{{ props.text }}
+	</button>
 </template>
 
 <script setup lang="ts">
+	interface Props {
+		text?: string;
+		bgColorRed?: boolean;
+	}
+	const props = withDefaults(defineProps<Props>(), {
+		text: 'button',
+		bgColorRed: true,
+	});
+
 	interface Emits {
 		(e: "custom-click", event: object): void;
 	};
@@ -16,7 +30,11 @@
 
 <style scoped>
 button {
-	color: red;
-	border: 1px solid red;
+	display: inline-block;
+	color: white;
+	background-color: black;
+	border-radius: 16px;
+	border: 1px solid white;
+	padding: 8px 16px;
 }
 </style>

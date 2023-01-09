@@ -18,7 +18,7 @@ const i = (e, s) => {
   }
 }), d = `button[data-v-8038b085]{color:red;border:1px solid black}
 `, C = /* @__PURE__ */ i(_, [["styles", [d]], ["__scopeId", "data-v-8038b085"]]), a = p(
-  () => import("./CustomButton.e745f570.mjs")
+  () => import("./CustomButton.46551617.mjs")
 ), b = c(a), f = c(C);
 customElements.define("custom-button", b);
 customElements.define("custom-button-import", f);
